@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='../css/bootstrap.min.css')
+		style .dl-horizontal dt {text-align:left;} .btn {margin:10px 10px 10px 0;}
+	body
+		div().row
+			div().col-md-8.col-md-offset-2
+				- var obj = objects
+				if obj
+					div.panel.panel-default
+						div.panel-body
+							dl.dl-horizontal
+								dt='NIM'
+								dd #{obj.NIM}
+								dt='NAMA'
+								dd #{obj.NAMA}
+								dt='TTL'
+								dd #{obj.TTL}
+								dt='ALAMAT'
+								dd #{obj.ALAMAT}
+								dt='ASAL'
+								dd #{obj.ASAL}
+								dt='JURUSAN'
+								dd #{obj.JURUSAN}
+								dd
+									a(href='edit/#{obj._id}', role='button').btn.btn-warning Ubah
+									
+									a(href='delete/#{obj._id}', role='button').btn.btn-danger Hapus 
+									
+									a(href='../#{collection}', role='button').btn.btn-primary Daftar Mahasiswa 

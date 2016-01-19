@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='http://#{baseurl}/css/bootstrap.min.css')
+	body
+		h2.text-center DATA MAHASISWA
+		hr
+		br
+		div().row
+			div().col-md-8.col-md-offset-2
+				if objects.length > 0
+					div.panel.panel-default
+						div.panel-body
+							table(data-role='table').table.table-responsive.table-striped
+								thead
+									tr
+										th='#'
+										th='NIM'
+										th='NAMA'
+										th='TTL'
+										th='ALAMAT'
+										th='ASAL'
+										th='JURUSAN'
+								tbody
+									each obj,index in objects
+										tr
+											td=index+1
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.NIM}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.NAMA}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.TTL}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.ALAMAT}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.ASAL}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.JURUSAN}
+							a(role='button',href='http://#{baseurl}/#{collection}/new').btn.btn-success Tambah Data

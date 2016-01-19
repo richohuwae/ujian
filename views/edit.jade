@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='../../css/bootstrap.min.css')
+		style .btn {margin:10px 10px 10px 0px;}
+	body
+		#container
+			- var obj = objects
+			div.col-md-8.col-md-offset-2
+				div.panel.panel-default
+					div.panel-heading
+						Ubah Data Mahasiswa
+					div.panel-body
+						form(method='post', action='')
+							div.form-group
+								label(for='NIM') NIM
+								input(type='text', name='NIM', id='NIM', value='#{obj.NIM}').form-control
+							div.form-group
+								label(for='NAMA') NAMA
+								input(type='text', name='NAMA', id='NAMA', value='#{obj.NAMA}').form-control
+							div.form-group
+								label(for='TTL') TTL
+								input(type='text' name='TTL', id='TTL', value='#{obj.TTL}').form-control
+							div.form-group
+								label(for='ALAMAT') ALAMAT
+								textarea(name='ALAMAT', id='ALAMAT').form-control #{obj.ALAMAT}
+							div.form-group
+								label(for='ASAL') ASAL
+								input(type='text' name='ASAL', id='ASAL', value='#{obj.ASAL}').form-control
+							div.form-group
+								label(for='JURUSAN') JURUSAN
+								input(type='text' name='JURUSAN', id='JURUSAN', value='#{obj.JURUSAN}').form-control
+							div.form-group
+								input(type='submit', value='Ubah').btn.btn-warning
+								a(href='/#{collection}', role='button').btn.btn-danger Batal
